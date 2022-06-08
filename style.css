@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --very-light-grayish-blue: hsl(240, 78%, 98%);
+    --light-grayish-blue: hsl(234, 14%, 74%);
+    --grayish-blue: hsl(233, 13%, 49%);
+    --dark-grayish-blue: hsl(232, 13%, 33%);
+    --gradient1: hsl(236, 72%, 79%);
+    --gradient2: hsl(237, 63%, 64%);
+    font-family: 'Montserrat', sans-serif; /*15px*/
+    font-weight: 700;
+}
+
+p{
+    font-size: 0.9375;
+}
+
+hr{
+    border-top: 0.5px solid var(--very-light-grayish-blue);
+    opacity: 0.5;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--very-light-grayish-blue);
+    background-image: url("./images/bg-top.svg");
+    background-repeat: no-repeat;
+    background-size: 300px;
+    background-position: top right;
+}
+
+@media(max-width:500px){
+    body{
+        background-position: 12.3em -3em;
+    }
+}
+
+.container{
+    max-width: 500px;
+    margin: 2em auto;
+}
+
+.main{
+    background-position: top right;
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+.header{
+    margin: 1em 0;
+}
+
+.header h1{
+    color: var(--grayish-blue);
+    text-align: center;
+}
+
+.header .toggle-state{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2em 0;
+    color: var(--light-grayish-blue);
+    font-weight: 700;
+}
+
+.toggle-state .toggle-button{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 25px;
+    margin: 0 1em;
+    border-radius: 40px;
+    background-image: linear-gradient( to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    cursor: pointer;
+    transition: opacity 0.5s ease;
+}
+
+.toggle-button .circle{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transform: translateX(135%);
+    border-radius: 50%;
+    background-color: var(--very-light-grayish-blue);
+    transition: all 0.5s ease;
+}
+
+.toggle-button.active .circle{
+    transform: translateX(0.2em);
+    
+}
+
+.card{
+    background-color: white;
+    padding: 2em;
+    margin: 2em 0;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--grayish-blue);
+}
+
+.card h2{
+    font-size: 1.2rem;
+}
+
+.card h1{
+    font-size: 3rem;
+    margin: 0.25em 0;
+    color: var(--dark-grayish-blue);
+}
+
+.card > *:not(h1,h2){
+    margin: 1em 0;
+}
+
+.card a{
+    background-image: linear-gradient(50deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    display: block;
+    padding: 0.8em 0;
+    margin: 2em 0 0 0;
+    border-radius: 6px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+    color: white;
+    border: 1.5px solid white;
+    transition: all 0.3s ease;
+}
+
+.card.dark--card{
+    background-image: linear-gradient( to bottom, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: white;
+}
+
+.card.dark--card hr{
+    border: 0.1px solid white;
+}
+
+.card.dark--card h1{
+    color: white;
+}
+
+.card.dark--card a{
+    background-image: none;
+    background-color: white;
+    color: var(--gradient2);
+}
+
+
+@media(min-width: 930px){
+
+    body{
+        background-image: url("./images/bg-top.svg"), url("./images/bg-bottom.svg");
+        background-repeat: no-repeat;
+        background-size: 300px;
+        background-position: top right, bottom left;
+    }
+
+    .container{
+        max-width: none;
+        padding: 0em 2em; 
+    }
+
+    .toggle-state .toggle-button:hover{
+        opacity: 0.75;
+    }
+    
+    .main{
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main .card{
+        flex: 1 1;
+        margin: 0 ;
+        max-width: 350px;
+    }
+
+    .card a:not(.dark):hover{
+        background-image: linear-gradient(50deg, white, white);
+        color: var(--gradient2);
+        border: 1.2px solid var(--light-grayish-blue);
+    }
+
+    .card.dark--card a:hover{
+        background-color: transparent;
+        border: 1.0px solid white;
+        color: white;
+    }
+
+    .card.dark--card{
+        min-height: 450px;
+    }
+
+}
